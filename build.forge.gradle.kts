@@ -17,7 +17,7 @@ platform {
 	loader = "forge"
 	dependencies {
 		required("minecraft") {
-			forgeLikeVersionRange = prop("deps.minecraft")
+			forgeLikeVersionRange = "[${prop("deps.minecraft")},)"
 		}
 		required("forge") {
 			forgeLikeVersionRange.set("[1,)")
