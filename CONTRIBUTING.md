@@ -119,4 +119,4 @@ Make sure you add yourself to the credits file when you make a commit! Add whate
 
 ### AI Usage
 
-This project will not accept fully AI generated code. If your Pull Request contains AI generated code you MUST outline what the AI contributed and what you contributed.
+This project will not accept fully AI generated code. If your Pull Request contains AI generated code you _MUST_ outline what the AI contributed and what you contributed. Failure to disclose AI usage may result in a blacklist on your Pull Requests.
