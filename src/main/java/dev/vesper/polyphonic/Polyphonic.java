@@ -17,9 +17,9 @@ import dev.vesper.polyphonic.platform.fabric.FabricPlatform;
 @SuppressWarnings("LoggingSimilarMessage")
 public class Polyphonic {
 
-	public static final String MOD_ID = /*$ mod_id*/ "weathertags";
+	public static final String MOD_ID = /*$ mod_id*/ "polyphonic";
 	public static final String MOD_VERSION = /*$ mod_version*/ "1.0.0";
-	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Extended Weather Tags";
+	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Polyphonic";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	private static final Platform PLATFORM = createPlatformInstance();
