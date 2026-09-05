@@ -1,6 +1,24 @@
+# Contributing
 
+## Contributor License Agreement
+Before your contribution can be merged, you must agree to the [Harmony Individual Contributor License Agreement](CONTRIBUTING.md).
 
-## Adding Tags:
+In short, it means:
+
+* You keep ownership of your code. 
+* You grant the project a permanent, irrevocable license to use, modify, and relicense your contribution under any terms, including commercial ones. 
+* You confirm the code is yours to contribute, Or.
+* If You do not own the Copyright in the entire work of authorship, you must include the other Copyright Owner(s), License(s), and Source(s) so that we may verify its ability to be included.
+
+To accept the CLA, post the following comment verbatim in your pull request:
+
+>I have read the Contributor License Agreement in CLA.md and I agree to its terms.
+
+Your pull request will not be merged until this comment is present. This comment, tied to your GitHub identity, serves as your signature.
+
+## Contributing Guidelines
+
+### Adding Tags:
 
 Tag additions should be implemented completely, meaning that if it is a variation tag, it must be added to all places the tag it's a variant of is, or if it's a new tag, it must be added to all applicable locations. Any omissions must be explained in your Pull Request.
 
@@ -75,7 +93,7 @@ if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
 // Code continues below
 ````
 
-## Versioning:
+### Versioning:
 
 Pull Requests must be completely versioned for all currently supported versions. Those being:
 
@@ -91,10 +109,14 @@ If your change requires a changing of the way versions are split in order to ver
 
 Pull requests porting the mod to versions prior to 1.18 will not be accepted, neither will ports to versions that have been explicitly dropped.
 
-## Mod Compatibility:
+### Mod Compatibility:
 
 Code that can be changed within this mod with checks for loaded mods will be accepted, but compatibility changes to use tags from this mod should be made in the target mod and will not be accepted. I would like to avoid adding more mixins than needed and really don't want to have to deal with MixinSquared.
 
-## Credits:
+### Credits:
 
 Make sure you add yourself to the credits file when you make a commit! Add whatever name you want to be associated with and (optionally) what you added! Just don't remove anyone else's name or contributions!
+
+### AI Usage
+
+This project will not accept fully AI generated code. If your Pull Request contains AI generated code you MUST outline what the AI contributed and what you contributed.
