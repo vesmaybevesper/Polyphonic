@@ -79,15 +79,17 @@ if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
 
 Pull Requests must be completely versioned for all currently supported versions. Those being:
 
-| Loader | Versions                             |
-|--------|--------------------------------------|
-| Forge  | 1.18.x, 1.19.x, 1.20.x, 1.21.x(?)    |
+| Loader | Versions                           |
+|--------|------------------------------------|
+| Forge  | 1.18.x, 1.19.x, 1.20.x    |
 | Fabric | 1.18.x, 1.19.x, 1.20.x, 1.21.x, 26.x |
-| NeoForge | 1.21.x, 26.x                       |
+| NeoForge | 1.21.x, 26.x                     |
 
-While the best effort will be made to keep the above list accurate, please doublecheck `settings.gradle.kts` & `stonecutter.properties.toml` to find a complete list of versions.
+While the best effort will be made to keep the above list accurate, please double check `settings.gradle.kts` & `stonecutter.properties.toml` to find a complete list of versions.
 
-If your change requires a changing of the way versions are split in order to version correctly, you are responsible for adding that version and updating anything else that may need to be updated as a result.
+If your change requires a changing of the way versions are split in order to version correctly, you are responsible for adding that version and updating anything else that may need to be updated as a result. I recommend using [mcsrc.dev](https://mcsrc.dev/) to compare code across versions if you are unsure.
+
+Pull requests porting the mod to versions prior to 1.18 will not be accepted, neither will ports to versions that have been explicitly dropped.
 
 ## Mod Compatibility:
 
