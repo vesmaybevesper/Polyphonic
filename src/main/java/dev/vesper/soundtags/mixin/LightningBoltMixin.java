@@ -82,6 +82,7 @@ public abstract class LightningBoltMixin extends Entity {
 	@Inject(method = "tick", at = @At("HEAD"), cancellable = true)
 	private void afterLoadLevel(CallbackInfo ci) {
 		// There needs to be someway to skip all this and use vanilla if no resourcepack using this is enabled
+		// I also need to mixin extras to make it wayyy more compact
 		//? >=1.20{
 		super.tick();
 		if (this.life == 2){
