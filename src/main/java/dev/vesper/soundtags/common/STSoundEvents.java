@@ -10,7 +10,6 @@ import net.minecraft.sounds.SoundEvent;
 public class STSoundEvents {
 	public static final SoundEvent LIGHTNING_STRIKE_FAR = register("weather.lightning.far");
 	public static final SoundEvent LIGHTNING_STRIKE_MED = register("weather.lightning.med");
-	public static final SoundEvent WEATHER_RAIN_BELOW = register("weather.rain.below");
 
 	//? >=1.21{
 	private static SoundEvent register(final String id) {
