@@ -1,8 +1,8 @@
-package dev.vesper.soundtags.platform.fabric;
+package dev.vesper.polyphonic.platform.fabric;
 
 //? fabric {
 
-import dev.vesper.soundtags.ExtendedSoundTags;
+import dev.vesper.polyphonic.Polyphonic;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import net.fabricmc.api.ClientModInitializer;
 
@@ -11,7 +11,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		ExtendedSoundTags.onInitializeClient();
+		Polyphonic.onInitializeClient();
 	}
 
 }

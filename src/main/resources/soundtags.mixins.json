@@ -1,5 +1,5 @@
 {
-  "package": "dev.vesper.soundtags.mixin",
+  "package": "dev.vesper.polyphonic.mixin",
   "required": true,
   "minVersion": "0.8",
   "compatibilityLevel": "${java}",
@@ -10,6 +10,5 @@
     "LightningBoltMixin"
   ],
   "client": [
-    "LevelRendererMixin"
   ]
 }

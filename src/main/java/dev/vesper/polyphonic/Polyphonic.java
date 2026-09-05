@@ -1,13 +1,13 @@
-package dev.vesper.soundtags;
+package dev.vesper.polyphonic;
 
-import dev.vesper.soundtags.platform.Platform;
+import dev.vesper.polyphonic.platform.Platform;
 
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? fabric {
-import dev.vesper.soundtags.platform.fabric.FabricPlatform;
+import dev.vesper.polyphonic.platform.fabric.FabricPlatform;
 //?} neoforge {
 /*import dev.vesper.soundtags.platform.neoforge.NeoforgePlatform;
  *///?} forge {
@@ -15,7 +15,7 @@ import dev.vesper.soundtags.platform.fabric.FabricPlatform;
  *///?}
 
 @SuppressWarnings("LoggingSimilarMessage")
-public class ExtendedSoundTags {
+public class Polyphonic {
 
 	public static final String MOD_ID = /*$ mod_id*/ "weathertags";
 	public static final String MOD_VERSION = /*$ mod_version*/ "1.0.0";
@@ -25,12 +25,12 @@ public class ExtendedSoundTags {
 	private static final Platform PLATFORM = createPlatformInstance();
 
 	public static void onInitialize() {
-		LOGGER.info("Initializing {} on {}", MOD_ID, ExtendedSoundTags.xplat().loader());
+		LOGGER.info("Initializing {} on {}", MOD_ID, Polyphonic.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
 	}
 
 	public static void onInitializeClient() {
-		LOGGER.info("Initializing {} Client on {}", MOD_ID, ExtendedSoundTags.xplat().loader());
+		LOGGER.info("Initializing {} Client on {}", MOD_ID, Polyphonic.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
 	}
 

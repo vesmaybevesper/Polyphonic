@@ -1,4 +1,4 @@
-package dev.vesper.soundtags.platform;
+package dev.vesper.polyphonic.platform;
 
 public interface Platform {
 	boolean isModLoaded(String modId);

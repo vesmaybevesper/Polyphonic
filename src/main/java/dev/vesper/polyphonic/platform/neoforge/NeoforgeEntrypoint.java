@@ -1,4 +1,4 @@
-package dev.vesper.soundtags.platform.neoforge;
+package dev.vesper.polyphonic.platform.neoforge;
 
 //? neoforge {
 

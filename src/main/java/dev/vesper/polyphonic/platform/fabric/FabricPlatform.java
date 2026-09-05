@@ -1,8 +1,8 @@
-package dev.vesper.soundtags.platform.fabric;
+package dev.vesper.polyphonic.platform.fabric;
 
 //? fabric {
 
-import dev.vesper.soundtags.platform.Platform;
+import dev.vesper.polyphonic.platform.Platform;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatform implements Platform {
