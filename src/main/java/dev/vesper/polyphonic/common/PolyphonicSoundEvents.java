@@ -21,8 +21,6 @@ public class PolyphonicSoundEvents {
 	}
 	*///?}
 
-
-	//? >=1.20{
 	private static SoundEvent register(final Identifier id) {
 		return register(id, id);
 	}
@@ -30,9 +28,4 @@ public class PolyphonicSoundEvents {
 	private static SoundEvent register(final Identifier id, final Identifier soundId) {
 		return Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(soundId));
 	}
-	//?} <1.20{
-	/*private static SoundEvent register(String string) {
-		return Registry.register(Registry.SOUND_EVENT, string, new SoundEvent(new Identifier(string)));
-	}
-	*///?}
 }

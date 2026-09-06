@@ -17,7 +17,7 @@ public class TagChecker {
 	/**
 	 * Our helper method for checking if a feature is being used by a Resource Pack. MUST be included in all tag additions
 	 * @param pathFilter
-	 * @param key The sound event being looked for, use the ID that was set in PolyphonicSoundEvents.class
+	 * @param key The sound event being looked for, use the ID that was set in PolyphonicSoundEvents
 	 * @return boolean
 	 */
 	public static boolean packHasFeature(Predicate<String> pathFilter, String key){
