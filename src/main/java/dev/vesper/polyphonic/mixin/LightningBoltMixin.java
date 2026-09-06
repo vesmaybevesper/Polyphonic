@@ -6,7 +6,6 @@ import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.polyphonic.common.PolyphonicSoundEvents;
 import dev.vesper.polyphonic.common.utils.TagChecker;
 import net.minecraft.client.Minecraft;
-import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
