@@ -46,6 +46,7 @@ public abstract class LightningBoltMixin extends Entity {
 		if (this.polyphonic$isDistant() && TagChecker.anyJsonHasKey(rm, path -> path.equals("sounds.json"), "weather.lightning.far")){
 			// Shouldn't play a lightning impact if the strike is distant
 		} else if (this.polyphonic$isMedium() && TagChecker.anyJsonHasKey(rm, path -> path.equals("sounds.json"), "weather.lightning.med")){
+			// Play impact sound at 1/2 vanilla volume if at medium distance
 			this.level().playLocalSound(d, e, f, SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.WEATHER, 1.0f, h, bl);
 		} else {
 			original.call(instance, d, e, f, soundEvent, soundSource, g, h, bl);
