@@ -18,6 +18,8 @@ Your pull request will not be merged until this comment is present. This comment
 
 ## Contributing Guidelines
 
+If you want to contribute but don't have any features of your own in mind check out the [Issues](https://github.com/vesmaybevesper/Polyphonic/issues) tab or our [TODO](TODO.md) document
+
 ### Adding Tags:
 
 Tag additions should be implemented completely, meaning that if it is a variation tag, it must be added to all places the tag it's a variant of is, or if it's a new tag, it must be added to all applicable locations. Any omissions must be explained in your Pull Request.
