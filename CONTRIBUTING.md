@@ -32,6 +32,8 @@ Condition checks should be spun out to their own methods unless the checks are v
 
 All tag-playing code must use our method `TagChecker.packHasFeature()` to check if that tag is present, and if not, return any original sound behavior that may be in the base game; for this reason, it is recommended to use MixinExtras to add your tag.
 
+For each tag you add make sure that, at minimum, the translation key for it has been created in en_us.json.
+
 Example:
 
 For our weather.lightning.med tag we must add our tag with appropriate check to `LightningBolt` via `LightningBoltMixin`
