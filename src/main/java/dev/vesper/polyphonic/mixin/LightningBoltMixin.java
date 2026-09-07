@@ -32,9 +32,9 @@ public abstract class LightningBoltMixin extends Entity {
 
 	@WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;playLocalSound(DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FFZ)V", ordinal = 0))
 	private void polyphonic$playThunder(Level instance, double d, double e, double f, SoundEvent soundEvent, SoundSource soundSource, float g, float h, boolean bl, Operation<Void> original) {
-			if (this.polyphonic$isDistant() && TagChecker.packHasFeature(path -> path.equals("sounds.json"), "weather.lightning.far")){
+			if (this.polyphonic$isDistant() && TagChecker.packHasFeature("weather.lightning.far")){
 				this.level().playLocalSound(d, e, f, PolyphonicSoundEvents.LIGHTNING_STRIKE_FAR, SoundSource.WEATHER, g, h, bl);
-			} else if (this.polyphonic$isMedium() && TagChecker.packHasFeature(path -> path.equals("sounds.json"), "weather.lightning.med")){
+			} else if (this.polyphonic$isMedium() && TagChecker.packHasFeature("weather.lightning.med")){
 				this.level().playLocalSound(d, e, f, PolyphonicSoundEvents.LIGHTNING_STRIKE_MED, SoundSource.WEATHER, g, h, bl);
 			} else {
 				original.call(instance, d, e, f, soundEvent, soundSource, g, h, bl);
@@ -43,9 +43,9 @@ public abstract class LightningBoltMixin extends Entity {
 
 	@WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;playLocalSound(DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FFZ)V", ordinal = 1))
 	private void polyphonic$playThunderImpact(Level instance, double d, double e, double f, SoundEvent soundEvent, SoundSource soundSource, float g, float h, boolean bl, Operation<Void> original){
-		if (this.polyphonic$isDistant() && TagChecker.packHasFeature(path -> path.equals("sounds.json"), "weather.lightning.far")){
+		if (this.polyphonic$isDistant() && TagChecker.packHasFeature("weather.lightning.far")){
 			// Shouldn't play a lightning impact if the strike is distant
-		} else if (this.polyphonic$isMedium() && TagChecker.packHasFeature(path -> path.equals("sounds.json"), "weather.lightning.med")){
+		} else if (this.polyphonic$isMedium() && TagChecker.packHasFeature("weather.lightning.med")){
 			// Play impact sound at 1/2 vanilla volume if at medium distance
 			this.level().playLocalSound(d, e, f, SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.WEATHER, 1.0f, h, bl);
 		} else {

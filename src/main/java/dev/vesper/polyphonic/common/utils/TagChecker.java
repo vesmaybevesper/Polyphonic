@@ -13,14 +13,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.function.Predicate;
 
+/**
+ * @author Vesper (VesMaybeVesper)
+ */
 public class TagChecker {
 	/**
 	 * Our helper method for checking if a feature is being used by a Resource Pack. MUST be included in all tag additions
-	 * @param pathFilter
 	 * @param key The sound event being looked for, use the ID that was set in PolyphonicSoundEvents
 	 * @return boolean
 	 */
-	public static boolean packHasFeature(Predicate<String> pathFilter, String key){
+	public static boolean packHasFeature(String key){
+		Predicate<String> pathFilter = path -> path.equals("sounds.json");
 		ResourceManager rm = Minecraft.getInstance().getResourceManager();
 		Map<Identifier, Resource> matches = rm.listResources("", loc -> pathFilter.test(loc.getPath()));
 
