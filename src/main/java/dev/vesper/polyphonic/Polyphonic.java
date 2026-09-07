@@ -1,17 +1,15 @@
 package dev.vesper.polyphonic;
 
-import dev.vesper.polyphonic.platform.Platform;
-
-import net.minecraft.resources.Identifier;
+import dev.vesper.polyphonic.platform.Platform;import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? fabric {
 import dev.vesper.polyphonic.platform.fabric.FabricPlatform;
 //?} neoforge {
-/*import dev.vesper.soundtags.platform.neoforge.NeoforgePlatform;
+/*import dev.vesper.polyphonic.platform.neoforge.NeoforgePlatform;
  *///?} forge {
-/*import dev.vesper.soundtags.platform.forge.ForgePlatform;
+/*import dev.vesper.polyphonic.platform.forge.ForgePlatform;
  *///?}
 
 @SuppressWarnings("LoggingSimilarMessage")
@@ -46,21 +44,5 @@ public class Polyphonic {
 		 *///?} forge {
 		/*return new ForgePlatform();
 		 *///?}
-	}
-
-	private static Identifier id(String path) {
-		//? > 1.19.2 {
-		return Identifier.fromNamespaceAndPath(MOD_ID, path);
-		 //?} <= 1.19.2 {
-		/*return new Identifier(MOD_ID, path);
-		*///?}
-	}
-
-	private static Identifier id(String namespace, String path) {
-		//? > 1.19.2 {
-		return Identifier.fromNamespaceAndPath(namespace, path);
-		 //?} <= 1.19.2 {
-		/*return new Identifier(namespace, path);
-		*///?}
 	}
 }
