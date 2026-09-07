@@ -56,22 +56,22 @@ public abstract class LightningBoltMixin extends Entity {
 	@Unique
 	private boolean polyphonic$isDistant() {
 		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getY()));
-		int renderDistBlocks = Minecraft.getInstance().options.renderDistance().get() * 16;
+		int simDistanceBlocks = Minecraft.getInstance().options.simulationDistance().get() * 16;
 		assert Minecraft.getInstance().player != null;
 		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getY()));
 		int distToStrikeX = (int) (playerPos.x - strikePos.x);
 		int distToStrikeY = (int) (playerPos.y - strikePos.y);
-		return distToStrikeX >= renderDistBlocks * .75 || distToStrikeY >= renderDistBlocks * .75;
+		return distToStrikeX >= simDistanceBlocks * .75 || distToStrikeY >= simDistanceBlocks * .75;
 	}
 
 	@Unique
 	private boolean polyphonic$isMedium() {
 		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getY()));
-		int renderDistBlocks = Minecraft.getInstance().options.renderDistance().get() * 16;
+		int simDistanceBlocks = Minecraft.getInstance().options.simulationDistance().get() * 16;
 		assert Minecraft.getInstance().player != null;
 		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getY()));
 		int distToStrikeX = (int) (playerPos.x - strikePos.x);
 		int distToStrikeY = (int) (playerPos.y - strikePos.y);
-		return distToStrikeX >= renderDistBlocks * .45 || distToStrikeY >= renderDistBlocks * .45;
+		return distToStrikeX >= simDistanceBlocks * .45 || distToStrikeY >= simDistanceBlocks * .45;
 	}
 }
