@@ -18,61 +18,33 @@ Your pull request will not be merged until this comment is present. This comment
 
 ## Contributing Guidelines
 
-If you want to contribute but don't have any features of your own in mind check out the [Issues](https://github.com/vesmaybevesper/Polyphonic/issues) tab or our [TODO](TODO.md) document
+If you want to contribute but don't have any features of your own in mind check out the [Issues](https://github.com/vesmaybevesper/Polyphonic/issues) tab or our [TODO](TODO.md) document.
+
+Read this document **IN ITS ENTIRETY** before submitting a Pull Request.
 
 ### Adding Tags:
 
-Tag additions should be implemented completely, meaning that if it is a variation tag, it must be added to all places the tag it's a variant of is, or if it's a new tag, it must be added to all applicable locations. Any omissions must be explained in your Pull Request.
+Tag additions should be implemented completely, meaning that if it is a variation tag, it must be added to all places the tag it's a variant of is (if applicable), or if it's a new tag, it must be added to all applicable locations. Any omissions must be explained in your Pull Request.
+
+If other tags play at the same time to make up the whole sound, you should make the necessary adjustments to have a cohesive sound experience.
+
+Condition checks should be spun out to their own methods unless the checks are very compact to maximize readability. In that same vein, please give a comment explaining choices so that others who may have to modify or update your code can easily understand it.
+
+All tag-playing code must use our method `TagChecker.packHasFeature()` to check if that tag is present, and if not, return any original sound behavior that may be in the base game; for this reason, it is recommended to use MixinExtras to add your tag.
 
 Example:
 
-For a weather.rain.below tag we must add our tag with appropriate check to both `LevelRender` via `LevelRendererMixin`
+For our weather.lightning.med tag we must add our tag with appropriate check to `LightningBolt` via `LightningBoltMixin`
 
 _Vanilla_
 ```` java
 // Code continues from above
-if (blockPos2 != null && random.nextInt(3) < this.rainSoundTime++) {
-				this.rainSoundTime = 0;
-				if (blockPos2.getY() > blockPos.getY() + 1 && levelReader.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, blockPos).getY() > Mth.floor((float) blockPos.getY())) {
-					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
-				} else {
-					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
-				}
-			}
-// Code continues below
-````
-
-_Mixin_
-
-```` java
-// Code continues from above
-if (blockPos2 != null && random.nextInt(3) < this.rainSoundTime++) {
-				this.rainSoundTime = 0;
-				if (blockPos2.getY() > blockPos.getY() + 1 && levelReader.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, blockPos).getY() > Mth.floor((float) blockPos.getY())) {
-					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
-				} else if (//Condition goes here) {
-				this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN_BELOW, SoundSource.WEATHER, 0.1F, 0.5F, false);
-				} else {
-					this.minecraft.level.playLocalSound(blockPos2, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
-				}
-			}
-// Code continues below
-````
-
-_and_ to `WeatherEffectRenderer` via `LevelEffectRendererMixin` (>= 1.21.1)
-
-_Vanilla_
-
-```` java
-// Code continues from above
-if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
-                this.rainSoundTime = 0;
-                if (rainParticlePosition.getY() > cameraPosition.getY() + 1
-                    && level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, cameraPosition).getY() > Mth.floor((float)cameraPosition.getY())) {
-                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
-                } else {
-                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
-                }
+public void tick() {
+        super.tick();
+        if (this.life == 2) {
+            if (this.level().isClientSide()) {
+                this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.WEATHER, 10000.0F, 0.8F + this.random.nextFloat() * 0.2F, false);
+                this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.WEATHER, 2.0F, 0.5F + this.random.nextFloat() * 0.2F, false);
             }
 // Code continues below
 ````
@@ -81,17 +53,53 @@ _Mixin_
 
 ```` java
 // Code continues from above
-if (rainParticlePosition != null && random.nextInt(3) < this.rainSoundTime++) {
-                this.rainSoundTime = 0;
-                if (rainParticlePosition.getY() > cameraPosition.getY() + 1
-                    && level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, cameraPosition).getY() > Mth.floor((float)cameraPosition.getY())) {
-                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN_ABOVE, SoundSource.WEATHER, 0.1F, 0.5F, false);
-                } else if (//Condition goes here) {
-                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN_BELOW, SoundSource.WEATHER, 0.1F, 0.5F, false);
-                } else {
-                    level.playLocalSound(rainParticlePosition, SoundEvents.WEATHER_RAIN, SoundSource.WEATHER, 0.2F, 1.0F, false);
-                }
-            }
+@WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;playLocalSound(DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FFZ)V", ordinal = 0))
+	private void polyphonic$playThunder(Level instance, double d, double e, double f, SoundEvent soundEvent, SoundSource soundSource, float g, float h, boolean bl, Operation<Void> original) {
+			if (this.polyphonic$isDistant() && TagChecker.packHasFeature("weather.lightning.far")){
+				this.level().playLocalSound(d, e, f, PolyphonicSoundEvents.LIGHTNING_STRIKE_FAR, SoundSource.WEATHER, g, h, bl);
+			} else if (this.polyphonic$isMedium() && TagChecker.packHasFeature("weather.lightning.med")){
+				this.level().playLocalSound(d, e, f, PolyphonicSoundEvents.LIGHTNING_STRIKE_MED, SoundSource.WEATHER, g, h, bl);
+			} else {
+				original.call(instance, d, e, f, soundEvent, soundSource, g, h, bl);
+			}
+	}
+
+	@WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;playLocalSound(DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FFZ)V", ordinal = 1))
+	private void polyphonic$playThunderImpact(Level instance, double d, double e, double f, SoundEvent soundEvent, SoundSource soundSource, float g, float h, boolean bl, Operation<Void> original){
+		if (this.polyphonic$isDistant() && TagChecker.packHasFeature("weather.lightning.far")){
+			// Shouldn't play a lightning impact if the strike is distant
+		} else if (this.polyphonic$isMedium() && TagChecker.packHasFeature("weather.lightning.med")){
+			// Play impact sound at 1/2 vanilla volume if at medium distance
+			this.level().playLocalSound(d, e, f, SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.WEATHER, 1.0f, h, bl);
+		} else {
+			original.call(instance, d, e, f, soundEvent, soundSource, g, h, bl);
+		}
+	}
+
+
+	@Unique
+	private boolean polyphonic$isDistant() {
+		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getZ()));
+		int simDistanceBlocks = Minecraft.getInstance().options.simulationDistance().get() * 16;
+		assert Minecraft.getInstance().player != null;
+		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getZ()));
+		float distToStrikeX = Mth.abs(playerPos.x - strikePos.x);
+		// this is .y simply because it's a Vec2, we pipe the Z pos into that spot
+		float distToStrikeY = Mth.abs(playerPos.y - strikePos.y);
+		return distToStrikeX >= simDistanceBlocks * .75 || distToStrikeY >= simDistanceBlocks * .75;
+	}
+
+	@Unique
+	private boolean polyphonic$isMedium() {
+		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getZ()));
+		int simDistanceBlocks = Minecraft.getInstance().options.simulationDistance().get() * 16;
+		assert Minecraft.getInstance().player != null;
+		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getZ()));
+		float distToStrikeX = Mth.abs(playerPos.x - strikePos.x);
+		// this is .y simply because it's a Vec2, we pipe the Z pos into that spot
+		float distToStrikeY = Mth.abs(playerPos.y - strikePos.y);
+		return distToStrikeX >= simDistanceBlocks * .45 || distToStrikeY >= simDistanceBlocks * .45;
+	}
 // Code continues below
 ````
 
