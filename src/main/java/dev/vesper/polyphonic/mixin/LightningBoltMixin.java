@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.At;
  * @author Vesper (VesMaybeVesper)
  */
 @Mixin(LightningBolt.class)
-@MixinEnvironment(type = MixinEnvironment.Env.MAIN)
+@MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 public abstract class LightningBoltMixin extends Entity {
 
 	public LightningBoltMixin(EntityType<?> p_19870_, Level p_19871_) {

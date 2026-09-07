@@ -16,7 +16,7 @@ mod.sources_url = "https://github.com/vesmaybevesper/Polyphonic"
 mod.homepage_url = "https://github.com/vesmaybevesper/Polyphonic"
 mod.issues_url = "https://github.com/vesmaybevesper/Polyphonic/issues"
 mod.discord_url = ""
-mod.environment = "both"
+mod.environment = "client"
 [[mod.pom.developers]]
 id = "vesmaybevesper"
 name = "VesMaybeVesper"
