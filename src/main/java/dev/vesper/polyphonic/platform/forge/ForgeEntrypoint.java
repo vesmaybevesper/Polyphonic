@@ -2,14 +2,14 @@ package dev.vesper.polyphonic.platform.forge;
 
 //? forge {
 
-/*import dev.vesper.soundtags.ModTemplate;
+/*import dev.vesper.polyphonic.Polyphonic;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod(ModTemplate.MOD_ID)
+@Mod(Polyphonic.MOD_ID)
 public class ForgeEntrypoint {
 
 	public ForgeEntrypoint() {
-		ModTemplate.onInitialize();
+		Polyphonic.onInitialize();
 	}
 }
 *///?}

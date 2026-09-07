@@ -2,7 +2,7 @@ package dev.vesper.polyphonic.platform.neoforge;
 
 //? neoforge {
 
-/*import dev.vesper.soundtags.platform.Platform;
+/*import dev.vesper.polyphonic.platform.Platform;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.fml.loading.VersionInfo;

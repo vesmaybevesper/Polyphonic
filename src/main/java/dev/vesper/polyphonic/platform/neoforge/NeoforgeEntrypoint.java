@@ -2,14 +2,14 @@ package dev.vesper.polyphonic.platform.neoforge;
 
 //? neoforge {
 
-/*import dev.vesper.soundtags.ModTemplate;
+/*import dev.vesper.polyphonic.Polyphonic;
 import net.neoforged.fml.common.Mod;
 
-@Mod(ModTemplate.MOD_ID)
+@Mod(Polyphonic.MOD_ID)
 public class NeoforgeEntrypoint {
 
 	public NeoforgeEntrypoint() {
-		ModTemplate.onInitialize();
+		Polyphonic.onInitialize();
 	}
 }
 *///?}

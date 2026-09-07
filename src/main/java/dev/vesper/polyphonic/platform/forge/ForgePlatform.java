@@ -1,8 +1,7 @@
 package dev.vesper.polyphonic.platform.forge;
 
 //? forge {
-
-/*import dev.vesper.soundtags.platform.Platform;
+/*import dev.vesper.polyphonic.platform.Platform;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 
