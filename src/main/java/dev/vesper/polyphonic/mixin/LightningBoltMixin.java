@@ -9,6 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -55,23 +56,25 @@ public abstract class LightningBoltMixin extends Entity {
 
 	@Unique
 	private boolean polyphonic$isDistant() {
-		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getY()));
+		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getZ()));
 		int simDistanceBlocks = Minecraft.getInstance().options.simulationDistance().get() * 16;
 		assert Minecraft.getInstance().player != null;
-		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getY()));
-		int distToStrikeX = (int) (playerPos.x - strikePos.x);
-		int distToStrikeY = (int) (playerPos.y - strikePos.y);
+		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getZ()));
+		float distToStrikeX = Mth.abs(playerPos.x - strikePos.x);
+		// this is .y simply because it's a Vec2, we pipe the Z pos into that spot
+		float distToStrikeY = Mth.abs(playerPos.y - strikePos.y);
 		return distToStrikeX >= simDistanceBlocks * .75 || distToStrikeY >= simDistanceBlocks * .75;
 	}
 
 	@Unique
 	private boolean polyphonic$isMedium() {
-		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getY()));
+		Vec2 strikePos = new Vec2(((float) this.getX()), ((float) this.getZ()));
 		int simDistanceBlocks = Minecraft.getInstance().options.simulationDistance().get() * 16;
 		assert Minecraft.getInstance().player != null;
-		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getY()));
-		int distToStrikeX = (int) (playerPos.x - strikePos.x);
-		int distToStrikeY = (int) (playerPos.y - strikePos.y);
+		Vec2 playerPos = new Vec2(((float) Minecraft.getInstance().player.getX()), ((float) Minecraft.getInstance().player.getZ()));
+		float distToStrikeX = Mth.abs(playerPos.x - strikePos.x);
+		// this is .y simply because it's a Vec2, we pipe the Z pos into that spot
+		float distToStrikeY = Mth.abs(playerPos.y - strikePos.y);
 		return distToStrikeX >= simDistanceBlocks * .45 || distToStrikeY >= simDistanceBlocks * .45;
 	}
 }
