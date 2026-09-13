@@ -2,7 +2,7 @@ In my never ending quest to make my weather replacement Resource Pack better I d
 
 Mod Pages:
 
-Modrinth
+[Modrinth](https://modrinth.com/project/polyphonic)
 CurseForge
 
 Use the tags the way you would any other Resource Pack tag from vanilla, for a full list of tags and what they do check the [wiki](https://github.com/vesmaybevesper/Extended-Sound-Tags/wiki)
