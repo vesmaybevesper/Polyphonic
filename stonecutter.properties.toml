@@ -3,7 +3,7 @@ loomx.loom_version="1.17-SNAPSHOT"
 mod.id = "polyphonic"
 mod.name = "Polyphonic"
 mod.group = "dev.vesper"
-mod.version = "1.0.0"
+mod.version = "0.1.0"
 mod.channel_tag = "-alpha.1"
 mod.description = "Extra weather tags for Resource Packs"
 mod.authors = ["VesMaybeVesper"]
@@ -56,4 +56,4 @@ publish.additionalVersions = ["1.21.1", "1.21.2", "1.21.3", "1.21.4", "1.21.5", 
 [neoforge."26.1"]
 deps.minecraft = "26.1"
 deps.neoforge = "26.1.0.19-beta"
-publish.additionalVersions = ["26.1.1", "26.1.2", "26.2"]
+publish.additionalVersions = ["26.1.1", "26.1.2", "26.2", "26.3"]
