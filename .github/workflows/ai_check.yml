@@ -1,0 +1,35 @@
+name: AI Authorship Dectector
+
+on: 
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest\
+    steps:
+      - name: Checkout PR Code
+        uses: actions/checkout@v4
+
+      - name: Checkout Detector Code
+        uses: actions/checkout@v4
+        with:
+          repository: BenjaminSRussell/Ai_code_detector
+          path: ai-checker
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Run AI Detector Setup
+        run: |
+            pip install -r requirements.text
+            pip install -e .
+        working-directory: ai-checker
+
+      - name: Run AI Check
+        id: run_check
+        run: |
+          python -m src.cli_enhanced ./repo --mode enhanced > result.txt
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
