@@ -28,7 +28,7 @@ Tag additions should be implemented completely, meaning that if it is a variatio
 
 If other tags play at the same time to make up the whole sound, you should make the necessary adjustments to have a cohesive sound experience.
 
-Condition checks should be spun out to their own methods unless the checks are very compact to maximize readability. In that same vein, please give a comment explaining choices so that others who may have to modify or update your code can easily understand it.
+Unless a condition check is very compact they should be spun out to their own methods to maximize readability. Unless a condition check needs something that can only be acquired (or easily acquired) in a mixin, such as `this`, they should be in a separate Class in `utils`. In that same vein, please give comments if necessary.
 
 All tag-playing code must use our method `TagChecker.packHasFeature()` to check if that tag is present, and if not, return any original sound behavior that may be in the base game; for this reason, it is recommended to use MixinExtras to add your tag.
 
