@@ -20,6 +20,8 @@ Your pull request will not be merged until this comment is present. This comment
 
 If you want to contribute but don't have any features of your own in mind check out the [Issues](https://github.com/vesmaybevesper/Polyphonic/issues) tab or our [TODO](TODO.md) document.
 
+If you have any questions this document doesn't cover please reach out via [Fluxer](https://fluxer.gg/8iEjlW09)
+
 Read this document **IN ITS ENTIRETY** before submitting a Pull Request.
 
 ### Adding Tags:
@@ -28,7 +30,7 @@ Tag additions should be implemented completely, meaning that if it is a variatio
 
 If other tags play at the same time to make up the whole sound, you should make the necessary adjustments to have a cohesive sound experience.
 
-Unless a condition check is very compact they should be spun out to their own methods to maximize readability. Unless a condition check needs something that can only be acquired (or easily acquired) in a mixin, such as `this`, they should be in a separate Class in `utils`. In that same vein, please give comments if necessary.
+Unless a condition check is very compact they should be spun out to their own methods to maximize readability. Unless a condition check needs something that can only be acquired (or easily acquired) in a mixin, such as `this`, they should be in a separate Class in `utils`. In that same vein, please give comments as necessary.
 
 All tag-playing code must use our method `TagChecker.packHasFeature()` to check if that tag is present, and if not, return any original sound behavior that may be in the base game; for this reason, it is recommended to use MixinExtras to add your tag.
 
