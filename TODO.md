@@ -2,4 +2,4 @@
   - If someone other than me (Vesper) works on this just know under NO CIRCUMSTANCE should you reference Cool Rain or any fork thereof, it's license doesn't allow that, and I'm not sure if I want to do it the same way anyway
 - Rain on water tag
 - Rain on Lava tag (this could maybe be bundled into a "hot blocks" category)
-- More fishing tags
+- More fishing tags?
