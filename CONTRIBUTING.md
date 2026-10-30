@@ -109,13 +109,19 @@ _Mixin_
 
 ### Versioning:
 
-Pull Requests must be completely versioned for all currently supported versions. Those being:
+#### Targeted Vs. Supported versions:
+  
+  A targeted version is being explicitly supported by the mod, it is being developed with the version in mind, even if the mod might not have been written on that version specifically. A supported version is a version that the mod works on, including by coincidence due to the code being the same as a targeted version. While an effort should be made to do things in ways that keep supported versions supported, don't sacrifice functionality (or a large improvement in either code size/ simplicity or quality) for them.
+
+---------
+
+Pull Requests must be completely versioned for all currently **_targeted_** versions. Those being:
 
 | Loader | Versions                           |
 |--------|------------------------------------|
-| Forge  | 1.20.x    |
-| Fabric | 1.20.x, 1.21.x, 26.x |
-| NeoForge | 1.21.x, 26.x                     |
+| Forge  | 1.20.1    |
+| Fabric | 1.20.1, 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3 |
+| NeoForge | 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3 |
 
 While the best effort will be made to keep the above list accurate, please double-check `settings.gradle.kts` & `stonecutter.properties.toml` to find a complete list of versions.
 
@@ -123,6 +129,13 @@ If your change requires a changing of the way versions are split in order to ver
 
 Pull requests porting the mod to versions prior to 1.20 will not be accepted, neither will ports to versions that have been explicitly dropped.
 
+List of all **_supported_** (incl. targeted) versions:
+
+| Loader | Versions                           |
+|--------|------------------------------------|
+| Forge  | 1.20.x    |
+| Fabric | 1.20.x, 1.21.1, 1.21.4-1.21.11, 26.x |
+| NeoForge | 1.21.1, 1.21.4-1.21.11, 26.x |
 ### Mod Compatibility:
 
 Code that can be changed within this mod with checks for loaded mods will be accepted, but compatibility changes to use tags from this mod should be made in the target mod and will not be accepted. I would like to avoid adding more mixins than needed and really don't want to have to deal with MixinSquared.
