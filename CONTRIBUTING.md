@@ -22,7 +22,7 @@ If you want to contribute but don't have any features of your own in mind check 
 
 If you have any questions this document doesn't cover please reach out via [Fluxer](https://fluxer.gg/8iEjlW09)
 
-Read this document **IN ITS ENTIRETY** before submitting a Pull Request.
+Read this document **IN ITS ENTIRETY** before submitting a Pull Request. This is a living document, it's a good idea to check back if it's been a while since you contributed as suggestions and guidelines may have changed.
 
 ### Adding Tags:
 
